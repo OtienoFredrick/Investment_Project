@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up - Portfolio Tracker</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/signup.css') }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="signup-container">
+    <div class="signup-form">
+      <h1>Create Your Account</h1>
+      <p>Join us and start managing your portfolio effortlessly.</p>
+
+      <!-- Flash messages for feedback -->
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for category, message in messages %}
+          <p class="flash-message" style="color: {{ 'red' if category == 'danger' else 'green' }};">{{ message }}</p>
+        {% endfor %}
+      {% endwith %}
+      
+      <form action="{{ url_for('signup') }}" method="POST">
+        <div class="input-group">
+          <label for="name">Full Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+        </div>
+        <div class="input-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="input-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Create a password" required>
+        </div>
+        <div class="input-group">
+          <label for="confirm-password">Confirm Password</label>
+          <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your password" required>
+        </div>
+        <button type="submit" class="btn">Sign Up</button>
+        <div class="extra-options">
+          <p>Already have an account? <a href="{{ url_for('login') }}">Log In</a></p>
+        </div>
+      </form>
+    </div>
+    <div class="signup-image">
+      <h2>Invest in Your Future</h2>
+      <p>Join thousands of users who trust us to track their investments.</p>
+      <img src="https://via.placeholder.com/400x300" alt="Sign Up Illustration">
+    </div>
+  </div>
+</body>
+</html>
