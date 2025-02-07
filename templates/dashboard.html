@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Portfolio Dashboard</title>
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="/static/css/style.css">
+    <!-- Add any other external libraries (like Bootstrap, if used) -->
+</head>
+
+<body>
+
+    <!-- Navigation Bar (Fixed on top) -->
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="/">Portfolio Tracker</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/dashboard">Dashboard</a></li>
+                <li><a href="/investments">Investments</a></li>
+                <li><a href="/profile">Profile</a></li>
+                <li><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Dashboard Content -->
+    <main>
+        <!-- Portfolio Overview Section -->
+        <section class="portfolio-overview">
+            <h2>Portfolio Overview</h2>
+            <div class="summary">
+                <div class="total-value">
+                    <h3>Total Portfolio Value</h3>
+                    <p>$0.00</p> <!-- Dynamic Value -->
+                </div>
+                <div class="performance">
+                    <h3>Performance</h3>
+                    <p>+10% since last month</p> <!-- Dynamic Value -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Performance Graph (Line Chart) -->
+        <section class="performance-graph">
+            <h3>Portfolio Performance Over Time</h3>
+            <canvas id="portfolioGraph"></canvas> <!-- Dynamic Chart -->
+        </section>
+
+        <!-- Investment Highlights Section -->
+        <section class="investment-highlights">
+            <h3>Top Investments</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Stock</th>
+                        <th>Quantity</th>
+                        <th>Purchase Price</th>
+                        <th>Current Price</th>
+                        <th>Change</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dynamic Investment Rows -->
+                    <tr>
+                        <td>XYZ</td>
+                        <td>100</td>
+                        <td>$50.00</td>
+                        <td>$60.00</td>
+                        <td>+20%</td>
+                    </tr>
+                    <tr>
+                        <td>ABC</td>
+                        <td>200</td>
+                        <td>$75.00</td>
+                        <td>$80.00</td>
+                        <td>+6.67%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Add Investment Section -->
+        <section class="add-investment">
+            <h3>Add New Investment</h3>
+            <form action="/add_investment" method="POST">
+                <label for="stockSymbol">Stock Symbol:</label>
+                <input type="text" id="stockSymbol" name="stockSymbol" required>
+
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" name="quantity" required>
+
+                <label for="purchasePrice">Purchase Price:</label>
+                <input type="number" id="purchasePrice" name="purchasePrice" required>
+
+                <label for="purchaseDate">Purchase Date:</label>
+                <input type="date" id="purchaseDate" name="purchaseDate" required>
+
+                <button type="submit">Add Investment</button>
+            </form>
+        </section>
+
+        <!-- Risk Analysis & Suggestions Section -->
+        <section class="risk-analysis">
+            <h3>Portfolio Risk Analysis</h3>
+            <div class="risk-metrics">
+                <div class="volatility">
+                    <h4>Volatility</h4>
+                    <p>Low</p> <!-- Dynamic Risk Metric -->
+                </div>
+                <div class="beta">
+                    <h4>Beta</h4>
+                    <p>1.2</p> <!-- Dynamic Risk Metric -->
+                </div>
+            </div>
+            <div class="portfolio-suggestions">
+                <h4>Portfolio Optimization Suggestions</h4>
+                <p>Consider adding more bonds to reduce risk.</p> <!-- Dynamic Suggestion -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="contact">
+            <p>Contact us: <a href="mailto:support@example.com">support@example.com</a></p>
+        </div>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Twitter</a>
+            <a href="#">LinkedIn</a>
+        </div>
+        <div class="terms-privacy">
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for dynamic behavior -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script>
+        // JavaScript for rendering the performance graph using Chart.js
+        var ctx = document.getElementById('portfolioGraph').getContext('2d');
+        var chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+                datasets: [{
+                    label: 'Portfolio Value',
+                    data: [1000, 1100, 1050, 1200, 1300],  // Dynamic Data
+                    borderColor: 'rgb(75, 192, 192)',
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
