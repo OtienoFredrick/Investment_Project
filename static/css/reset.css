@@ -1,0 +1,55 @@
+/* General styling for body */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f3f4f6;
+    padding: 20px;
+    text-align: center;
+}
+
+/* Heading style */
+h2 {
+    color: #6A1B9A;
+    margin-bottom: 20px;
+}
+
+/* Form container */
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+/* Input fields style */
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Button style */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #6A1B9A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #4A0072;
+}
+
+/* Flash message styling */
+.flash-message {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
