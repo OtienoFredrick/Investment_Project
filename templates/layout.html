@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track and optimize your investments with real-time data and advanced analytics to maximize your financial growth.">
+    <meta property="og:title" content="Investment Portfolio Tracker">
+    <meta property="og:description" content="Track and optimize your investments with real-time data and advanced analytics to maximize your financial growth.">
+    <meta property="og:image" content="{{ url_for('static', filename='images/logo.png') }}">
+    <meta property="og:url" content="{{ url_for('home') }}">
+    <title>Investment Portfolio Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <nav class="sticky-nav">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Investment Tracker Logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+                {% if 'user_id' in session %}
+                    <li><a href="{{ url_for('dashboard') }}">Dashboard</a></li>
+                    <li><a href="{{ url_for('logout') }}" class="cta-btn">Log Out</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('login') }}">Log In</a></li>
+                    <li><a href="{{ url_for('signup') }}" class="cta-btn">Sign Up</a></li>
+                {% endif %}
+            </ul>
+            <button class="dark-mode-toggle" aria-label="Toggle Dark Mode">🌙</button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Maximize Your Investment Potential</h1>
+            <p>Track, analyze, and optimize your portfolio with our easy-to-use platform for smarter financial decisions.</p>
+            <div class="cta-buttons">
+                <a href="{{ url_for('signup') }}" class="cta-btn">Get Started</a>
+                <a href="{{ url_for('login') }}" class="cta-btn">Log In</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="feature-item">
+            <img src="{{ url_for('static', filename='assets/track.svg') }}" alt="Track Icon">
+            <h3>Real-Time Tracking</h3>
+            <p>Monitor your investments, track portfolio performance, and make data-driven decisions instantly.</p>
+        </div>
+        <div class="feature-item">
+            <img src="{{ url_for('static', filename='assets/analysis.svg') }}" alt="Analysis Icon">
+            <h3>Advanced Analytics</h3>
+            <p>Get insights into risk, asset allocation, and more with detailed analytical reports.</p>
+        </div>
+        <div class="feature-item">
+            <img src="{{ url_for('static', filename='assets/optimize.svg') }}" alt="Optimize Icon">
+            <h3>Portfolio Optimization</h3>
+            <p>Optimize your portfolio’s asset allocation based on your goals and market conditions.</p>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="about" class="about">
+        <h2>Why Choose Us?</h2>
+        <p>We provide a secure and user-friendly platform for investors to manage and grow their portfolios. Our powerful tracking, analytics, and optimization tools help you stay ahead of the market and maximize your returns.</p>
+        <ul>
+            <li><strong>Security:</strong> Top-notch encryption to protect your data.</li>
+            <li><strong>24/7 Support:</strong> Our dedicated support team is here to assist you anytime.</li>
+            <li><strong>User-Friendly:</strong> Easy-to-use interface designed for both beginners and experts.</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or need assistance, feel free to reach out to our team!</p>
+        <form action="{{ url_for('contact_form') }}" method="POST" class="contact-form">
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required>
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required>
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit" class="cta-btn">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Sign Up Form (New Section) -->
+    <section id="signup" class="auth-form">
+        <h2>Sign Up</h2>
+        <form action="{{ url_for('signup') }}" method="POST">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit" class="cta-btn">Sign Up</button>
+        </form>
+    </section>
+
+    <!-- Login Form (New Section) -->
+    <section id="login" class="auth-form">
+        <h2>Log In</h2>
+        <form action="{{ url_for('login') }}" method="POST">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+            
+            <button type="submit" class="cta-btn">Log In</button>
+        </form>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <ul class="footer-links">
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul>
+        <p>&copy; 2025 Investment Tracker, All Rights Reserved.</p>
+    </footer>
+
+    <!-- Dark Mode Script -->
+    <script>
+        // Dark Mode Toggle
+        document.querySelector('.dark-mode-toggle').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            if (document.body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Apply saved theme on page load
+        window.addEventListener('load', function() {
+            const theme = localStorage.getItem('theme');
+            if (theme === 'dark') {
+                document.body.classList.add('dark-mode');
+            }
+        });
+    </script>
+</body>
+
+</html>
