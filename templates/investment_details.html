@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Details - InvestTrack</title>
+    <link rel="stylesheet" href="/static/css/investments.css"> <!-- Ensure path is correct -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.0.1/chart.min.js"></script>
+</head>
+
+<body>
+    <!-- Header Section with Navigation Bar -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="/dashboard" class="logo">InvestTrack</a>
+                <ul class="nav-links">
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/investments">Investments</a></li>
+                    <li><a href="/profile">Profile</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content Section -->
+    <main class="investment-details">
+        <section class="summary">
+            <div class="container">
+                <h1>Investment Portfolio Overview</h1>
+                <div class="portfolio-summary">
+                    <div class="summary-item">
+                        <h2>Total Portfolio Value</h2>
+                        <p>$<span id="total-value">25,000</span></p>
+                    </div>
+                    <div class="summary-item">
+                        <h2>Daily Change</h2>
+                        <p class="positive">+2.5% <i class="fas fa-arrow-up"></i></p>
+                    </div>
+                    <div class="summary-item">
+                        <h2>Portfolio Risk</h2>
+                        <p>Medium</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Investments List Section -->
+        <section class="investment-list">
+            <div class="container">
+                <h2>Current Holdings</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Stock Symbol</th>
+                            <th>Quantity</th>
+                            <th>Purchase Price</th>
+                            <th>Current Price</th>
+                            <th>Daily Change</th>
+                            <th>Total Value</th>
+                        </tr>
+                    </thead>
+                    <tbody id="investment-table-body">
+                        <!-- Dynamic table rows will be inserted here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Risk Analysis Section -->
+        <section class="risk-analysis">
+            <div class="container">
+                <h2>Risk Analysis</h2>
+                <canvas id="riskChart"></canvas>
+            </div>
+        </section>
+
+        <!-- Portfolio Suggestions Section -->
+        <section class="suggestions">
+            <div class="container">
+                <h2>Portfolio Suggestions</h2>
+                <div class="suggestion-cards">
+                    <div class="card">
+                        <h3>Rebalance Portfolio</h3>
+                        <p>Consider diversifying by reducing exposure to high-volatility stocks.</p>
+                        <button class="modal-btn">View Suggestions</button>
+                    </div>
+                    <div class="card">
+                        <h3>Increase Bonds</h3>
+                        <p>Adding bonds can help lower overall portfolio risk.</p>
+                        <button class="modal-btn">Learn More</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Suggestion Modal -->
+        <div id="suggestionModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>Detailed Suggestion</h3>
+                <p>Here you can provide more information about the suggestion.</p>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 InvestTrack. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- External JavaScript File -->
+    <script src="/static/js/investments.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
