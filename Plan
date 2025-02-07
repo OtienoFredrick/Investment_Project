@@ -1,0 +1,21 @@
+/investment-portfolio-tracker
+├── /static                    # CSS, JS, Images
+│   ├── /css                   # CSS files
+│   │   └── style.css          # Main stylesheet
+│   ├── /js                    # JavaScript files
+│   │   └── app.js             # Dynamic data handling
+│   └── /images                # Images (logo, icons)
+├── /templates                 # HTML files
+│   ├── layout.html            # Base HTML structure
+│   ├── login.html             # Login page
+│   ├── signup.html            # Sign-up page
+│   ├── dashboard.html         # Portfolio Dashboard
+│   └── investment_details.html # Investment details page
+├── /app.py                    # Flask application
+├── /config.py                 # App configuration (API keys, database settings)
+├── /models.py                 # Database models (User, Investment, Performance)
+├── /portfolio.py              # Portfolio logic (calculating performance, risk, etc.)
+├── /api.py                    # API logic (fetching stock data, portfolio management)
+├── /requirements.txt          # Project dependencies
+├── /run.py                    # Script to run the app
+└── /README.md                 # Project documentation
