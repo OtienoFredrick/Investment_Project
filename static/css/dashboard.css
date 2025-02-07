@@ -1,0 +1,265 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #6A1B9A, #8E24AA);
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Navigation Bar */
+header {
+    background: #6A1B9A;
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+nav .logo a {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+nav .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+nav .nav-links li {
+    margin-left: 20px;
+}
+
+nav .nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 15px;
+    transition: background-color 0.3s ease, color 0.3s;
+}
+
+nav .nav-links a:hover {
+    background-color: #4A0072;
+    border-radius: 4px;
+    color: #fff;
+}
+
+/* Main Content */
+main {
+    padding: 100px 20px 20px;
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* Portfolio Overview */
+.portfolio-overview {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.portfolio-overview h2 {
+    font-size: 2rem;
+    color: #6A1B9A;
+    margin-bottom: 10px;
+}
+
+.portfolio-overview .summary {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.portfolio-overview .summary div {
+    flex: 1;
+    background: #F3E5F5;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-overview .summary h3 {
+    font-size: 1.5rem;
+    color: #4A0072;
+}
+
+.portfolio-overview .summary p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #6A1B9A;
+}
+
+/* Performance Graph */
+.performance-graph {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.performance-graph h3 {
+    font-size: 1.8rem;
+    color: #6A1B9A;
+    margin-bottom: 1rem;
+}
+
+/* Investment Highlights */
+.investment-highlights {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.investment-highlights h3 {
+    font-size: 1.8rem;
+    color: #6A1B9A;
+    margin-bottom: 1rem;
+}
+
+.investment-highlights table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.investment-highlights table th,
+.investment-highlights table td {
+    text-align: left;
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.investment-highlights table th {
+    background-color: #F3E5F5;
+    font-weight: bold;
+}
+
+.investment-highlights table td {
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Add Investment Form */
+.add-investment {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.add-investment h3 {
+    font-size: 1.8rem;
+    color: #6A1B9A;
+    margin-bottom: 1rem;
+}
+
+.add-investment label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #4A0072;
+}
+
+.add-investment input,
+.add-investment button {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.add-investment input:focus {
+    outline: none;
+    border-color: #6A1B9A;
+}
+
+.add-investment button {
+    background: #6A1B9A;
+    color: white;
+    font-weight: 600;
+    transition: background 0.3s ease;
+    cursor: pointer;
+}
+
+.add-investment button:hover {
+    background: #4A0072;
+}
+
+/* Risk Analysis */
+.risk-analysis {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.risk-analysis h3 {
+    font-size: 1.8rem;
+    color: #6A1B9A;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background: #6A1B9A;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+footer a:hover {
+    color: #F3E5F5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav .nav-links {
+        display: none;
+        flex-direction: column;
+        margin-top: 10px;
+    }
+
+    .summary, .risk-metrics {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .summary div, .risk-metrics div {
+        width: 100%;
+    }
+}
